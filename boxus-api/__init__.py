@@ -2,8 +2,6 @@ import hug
 
 from . import sensors
 from . import devices
-from . import readings
-
 
 @hug.extend_api('/sensors')
 def sensors_api():
