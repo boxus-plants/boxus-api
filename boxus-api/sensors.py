@@ -17,6 +17,11 @@ def sensor(sid):
     sensor = Sensor.find(db, sid)
     return sensor.to_json()
 
+@hug.get('/{sid}/read', examples='save=True')
+def sensor_read(sid, save:bool=False):
+    sensor = Sensor.find(db, sid)
+    return sensor.read(save)
+
 @hug.get('/{sid}/readings', examples='period=2-weeks&limit=100')
 def sensor_readings(sid,
                     limit:int=None,
